@@ -9,6 +9,7 @@ RUN npm run build:${env}
 
 ### STAGE 2: Run ###
 FROM nginx
+EXPOSE 80 4200
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build-step /usr/src/app/dist /usr/share/nginx/html
 
